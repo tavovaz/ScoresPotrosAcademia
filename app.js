@@ -21,6 +21,8 @@ app.use('/resources', express.static(path.join(__dirname, 'public')));
 
 // === Middlewares base ===
 app.use(express.urlencoded({ extended: true }));
+// La API de Claude manda lotes grandes (temporada completa); el resto usa el límite normal.
+app.use('/api/claude', express.json({ limit: '2mb' }));
 app.use(express.json());
 app.use(cookieParser());
 
