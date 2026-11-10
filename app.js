@@ -52,6 +52,9 @@ app.use('/Coordinadores', require('./Rutas/coordinador'));
 app.use('/adminEstadisticas', isAuthenticated, require('./Rutas/adminEstadisticas'));
 app.use('/adminCoordinador', isAuthenticated, require('./Rutas/adminCoordinador'));
 
+// API con token para que Claude corrija estadísticas (ver Rutas/apiClaude.js)
+app.use('/api/claude', require('./Rutas/apiClaude'));
+
 // === Health check local ===
 app.get('/health', (_, res) => res.send('ok'));
 
